@@ -102,7 +102,9 @@ export default function SignUpPage() {
                     </div>
 
                     <div style={{ marginTop: 8 }}>
-                        <button className="btn-primary">Create Account</button>
+                        <Link href="/login" style={{ textDecoration: "none" }}>
+                            <button className="btn-primary">Create Account</button>
+                        </Link>
                     </div>
                 </div>
             </motion.div>

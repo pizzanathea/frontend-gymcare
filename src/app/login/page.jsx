@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function SignInPage() {
     return (
@@ -72,9 +73,9 @@ export default function SignInPage() {
                     </h1>
                     <p style={{ fontSize: 13, color: "#52525b" }}>
                         Don't have an account yet?{" "}
-                        <a href="/register" style={{ color: "#facc15", fontWeight: 600, textDecoration: "none" }}>
+                        <Link href="/register" style={{ color: "#facc15", fontWeight: 600, textDecoration: "none" }}>
                             Sign Up
-                        </a>
+                        </Link>
                     </p>
                 </div>
 
@@ -88,13 +89,17 @@ export default function SignInPage() {
                     <div>
                         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
                             <label style={{ fontSize: 11, color: "#71717a", fontWeight: 600, letterSpacing: "0.06em" }}>PASSWORD</label>
-                            <span style={{ fontSize: 11, color: "#facc15", cursor: "pointer" }}>Forgot password?</span>
+                            <Link href="/login/forgot" style={{ fontSize: 11, color: "#facc15", textDecoration: "none" }}>
+                                Forgot password?
+                            </Link>
                         </div>
                         <input className="input-field" type="password" placeholder="••••••••" />
                     </div>
 
                     <div style={{ marginTop: 8 }}>
-                        <button className="btn-primary">Sign In</button>
+                        <Link href="/dashboard" style={{ textDecoration: "none" }}>
+                            <button className="btn-primary">Sign In</button>
+                        </Link>
                     </div>
                 </div>
             </motion.div>
