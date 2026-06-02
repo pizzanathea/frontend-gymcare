@@ -2,9 +2,15 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
-// useState only used in Navbar for active state
+import Link from "next/link";
 
-const NAV_LINKS = ["Home", "Laporan", "Feed", "Fitur", "FAQ"];
+const NAV_LINKS = [
+  { label: "Home", href: "#home" },
+  { label: "Features", href: "#features" },
+  { label: "Stats", href: "#stats" },
+  { label: "CTA", href: "#cta" },
+  { label: "FAQ", href: "#faq" },
+];
 
 export default function Navbar() {
   const [active, setActive] = useState("Home");
@@ -43,42 +49,80 @@ export default function Navbar() {
         </span>
       </div>
 
-      {/* Nav Links */}
+      {/* Navigation */}
       <div style={{ display: "flex", gap: 4, alignItems: "center" }}>
-        {NAV_LINKS.map((l) => {
-          const isActive = active === l;
-          return (
+        {NAV_LINKS.map((item) => (
+          <Link
+            key={item.label}
+            href={item.href}
+            style={{ textDecoration: "none" }}
+            onClick={() => setActive(item.label)}
+          >
             <NavLink
-              key={l}
-              label={l}
-              isActive={isActive}
-              onClick={() => setActive(l)}
+              label={item.label}
+              isActive={active === item.label}
             />
-          );
-        })}
+          </Link>
+        ))}
       </div>
 
-      {/* CTA Button */}
-      <button className="btn-ghost">Buat Akun</button>
+      {/* Button */}
+      <BuatAkunButton />
     </motion.nav>
   );
 }
 
-function NavLink({ label, isActive, onClick }) {
+function NavLink({ label, isActive }) {
+  const [hovered, setHovered] = useState(false);
+
   return (
     <span
-      onClick={onClick}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
       style={{
-        color: isActive ? "#ffffff" : "#facc15",
+        color: isActive || hovered ? "#ffffff" : "#facc15",
         padding: "5px 12px",
         fontSize: 14,
         fontWeight: isActive ? 600 : 400,
         cursor: "pointer",
-        transition: "color 0.3s ease",
+        transition: "color 0.25s ease",
         userSelect: "none",
       }}
     >
       {label}
     </span>
+  );
+}
+
+function BuatAkunButton() {
+  const [hovered, setHovered] = useState(false);
+
+  return (
+    <Link href="/register" style={{ textDecoration: "none" }}>
+      <motion.button
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.96 }}
+        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+        style={{
+          all: "unset",
+          display: "inline-block",
+          background: hovered ? "#facc15" : "transparent",
+          color: hovered ? "#000000" : "#ffffff",
+          border: "1.5px solid #facc15",
+          borderRadius: "8px",
+          padding: "8px 18px",
+          fontSize: "13px",
+          fontWeight: 600,
+          cursor: "pointer",
+          letterSpacing: "0.02em",
+          boxSizing: "border-box",
+          transition: "background 0.25s ease, color 0.25s ease",
+        }}
+      >
+        Sign Up
+      </motion.button>
+    </Link>
   );
 }

@@ -9,11 +9,22 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <Hero />
-      <Features />
-      <Stats />
-      <CTA />
-      <Footer />
+
+      <section id="home">
+        <Hero />
+      </section>
+      <section id="features">
+        <Features />
+      </section>
+      <section id="stats">
+        <Stats />
+      </section>
+      <section id="cta">
+        <CTA />
+      </section>
+      <section id="faq">
+        <Footer />
+      </section>
     </>
   );
 }

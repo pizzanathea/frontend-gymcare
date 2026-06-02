@@ -4,10 +4,10 @@ import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 
 const floatingItems = [
-    { id: 1, label: "Treadmill #3", sub: "Dilaporkan", x: "8%", y: "28%" },
-    { id: 2, label: "Dumbbell Rack", sub: "Dalam perbaikan", x: "76%", y: "22%" },
-    { id: 3, label: "Bench Press B", sub: "Selesai", x: "6%", y: "62%" },
-    { id: 4, label: "Pull-up Bar", sub: "Baru dilaporkan", x: "78%", y: "60%" },
+    { id: 1, label: "Treadmill 3", sub: "Reported", x: "8%", y: "28%" },
+    { id: 2, label: "Dumbbell Rack", sub: "In Repair", x: "76%", y: "22%" },
+    { id: 3, label: "Bench Press B", sub: "Completed", x: "6%", y: "62%" },
+    { id: 4, label: "Pull-up Bar", sub: "New Report", x: "78%", y: "60%" },
 ];
 
 export default function Hero() {
@@ -176,37 +176,24 @@ export default function Hero() {
             <div className="relative z-10 max-w-3xl text-center">
                 <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-zinc-400 mb-8">
                     <span className="w-2 h-2 rounded-full bg-yellow-400 animate-pulse" />
-                    Platform Laporan Gym · Live
+                    Live Gym Reporting Platform
                 </span>
 
                 <h1 className="mb-6 text-5xl md:text-7xl font-extrabold text-white">
-                    Satu klik untuk
+                    JUST ONE CLIK
                     <br />
                     <span className="text-yellow-400">
-                        laporan gym
+                        FOR YOUR GYM
                     </span>{" "}
-                    kamu
+                    REPORT
                 </h1>
 
                 <p className="mx-auto mb-10 max-w-xl text-zinc-500 leading-8">
-                    Foto alat rusak, post ke feed, admin langsung tahu.
-                    Gym lebih aman dan terawat dimulai dari komunitas.
+                    Post a photo of broken equipment to the feed, and the admin will know right away.
+                    A safer and better-maintained gym starts with the community.
                 </p>
-
-                <div className="flex justify-center gap-3 flex-wrap">
-                    <button className="px-6 py-3 rounded-lg bg-yellow-400 text-black font-semibold hover:bg-yellow-300 transition">
-                        Buat Laporan →
-                    </button>
-
-                    <button className="px-6 py-3 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition">
-                        Lihat Feed
-                    </button>
-                </div>
             </div>
 
-            <div className="absolute bottom-8 left-8 text-xs text-zinc-600">
-                {String(scrollCount).padStart(2, "0")}/03 · Scroll Down
-            </div>
         </section>
     );
 }
