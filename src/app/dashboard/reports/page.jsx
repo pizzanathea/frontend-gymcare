@@ -106,7 +106,7 @@ export default function ReportsPage() {
                     </div>
 
                     <Link
-                        href="/dashboard/reports/create"
+                        href="/dashboard/reports/Createreport"
                         style={{
                             background: "#facc15",
                             color: "#000",
@@ -119,7 +119,7 @@ export default function ReportsPage() {
                             display: "inline-block",
                         }}
                     >
-                        + New Report
+                        + Create report
                     </Link>
                 </motion.div>
 
